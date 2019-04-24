@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import UserList from './UserList';
+import '../home/App.css';
 import { Link } from 'react-router-dom';
-class MainComponent extends Component {
+
+class EditComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,17 +16,16 @@ class MainComponent extends Component {
   render() {
     return (
       <div className="container">
-        <h2>User List </h2>
-        <div className="d-flex justify-content-end">
-          <Link to={'/create'} className="btn btn-success">
-            Create
+        <h2>Edit User </h2>
+        <div className="d-flex">
+          <Link to={'/'} className="btn btn-primary">
+            Back
           </Link>
         </div>
         <br />
-        <UserList {...this.props} />
       </div>
     );
   }
 }
 
-export default MainComponent;
+export default EditComponent;

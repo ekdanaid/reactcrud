@@ -1,8 +1,5 @@
 const initialState = {
-  member: [
-    { id: '1', name: 'Steve', lname: 'Jobs' },
-    { id: '2', name: 'Elon', lname: 'Musk' }
-  ]
+  member: [{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }]
 };
 
 const crud = (state = initialState, action) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-export default class ComponentA extends Component {
+export default class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,7 +10,9 @@ export default class ComponentA extends Component {
       responseToPost: '',
       keyword: '',
       sorted: false,
-      list: this.props.result
+      list: this.props.result,
+      name: '',
+      lname: ''
     };
   }
 
@@ -31,17 +34,20 @@ export default class ComponentA extends Component {
               <th className="col-1" />
             </tr>
           </thead>
-          <tbody className="">
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td />
-            </tr>
-            <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td />
-            </tr>
+          <tbody>
+            {this.props.crud.member.map((snapshot, i) => {
+              return (
+                <tr key={i}>
+                  <td>{snapshot.name}</td>
+                  <td>{snapshot.lname}</td>
+                  <td>
+                    <Link to={`/edit/${i}`} className="btn btn-primary">
+                      View
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
