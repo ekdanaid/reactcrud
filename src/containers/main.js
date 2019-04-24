@@ -1,40 +1,43 @@
-import React from 'react'
-import MainComponent from '../components/home'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React from 'react';
+import MainComponent from '../components/home';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import {
-  enableLoading,
-  disableLoading
-} from '../actions/loading'
+import { enableLoading, disableLoading } from '../actions/loading';
 
-import './style.css'
-
+import './style.css';
 
 // Main container
 export class MainContainer extends React.Component {
-  render () {
+  render() {
     return (
-      <div className={'main-container'}> 
-        <MainComponent {...this.props}/>
+      <div className={'main-container'}>
+        <MainComponent {...this.props} />
       </div>
-    )
+    );
   }
 }
 
 // reducer
-const mapStateToProps = (state) => {
-  return { 
-    action: state.action,
-  }
-}
+const mapStateToProps = state => {
+  return {
+    crud: state.crud
+  };
+};
 
-// function 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    // loading action
-    enableLoading, disableLoading,
-  }, dispatch)
-}
+// function
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      // loading action
+      enableLoading,
+      disableLoading
+    },
+    dispatch
+  );
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainContainer);

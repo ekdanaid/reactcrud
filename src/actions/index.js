@@ -1,8 +1,8 @@
 export const actionA = () => {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch({
-      type: 'ACTION_A',
+      type: 'USER_SELECT',
       payload: 'got it from Action A'
-    })
-  }
-}
+    });
+  };
+};
