@@ -23,6 +23,11 @@ export default class UserList extends Component {
     });
   };
 
+  deleteUser = (e, index) => {
+    e.preventDefault();
+    this.props.removeUser(index);
+  };
+
   render() {
     return (
       <div>
@@ -32,11 +37,12 @@ export default class UserList extends Component {
               <th className="col-6">Name</th>
               <th className="col-3">Last</th>
               <th className="col-1" />
+              <th className="col-1" />
             </tr>
           </thead>
           <tbody>
-            {this.props.crud.member.map((snapshot, i) => {
-              return (
+            {this.props.crud.members.map((snapshot, i) => {
+              return [
                 <tr key={i}>
                   <td>{snapshot.name}</td>
                   <td>{snapshot.lname}</td>
@@ -45,8 +51,16 @@ export default class UserList extends Component {
                       View
                     </Link>
                   </td>
+                  <td>
+                    <button
+                      onClick={e => this.deleteUser(e, i)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
-              );
+              ];
             })}
           </tbody>
         </table>
