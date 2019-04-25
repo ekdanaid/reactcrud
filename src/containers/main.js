@@ -3,7 +3,6 @@ import MainComponent from '../components/home';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { enableLoading, disableLoading } from '../actions/loading';
 import { removeUser } from '../actions';
 
 import './style.css';
@@ -30,9 +29,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      // loading action
-      enableLoading,
-      disableLoading,
       //remove action
       removeUser
     },
