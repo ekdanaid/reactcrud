@@ -22,11 +22,11 @@ export const removeUser = id => {
     });
   };
 };
-export const selectUser = user => {
+export const selectUser = id => {
   return function(dispatch) {
     dispatch({
       type: 'SELECT_USER',
-      payload: { user }
+      payload: { id: id }
     });
   };
 };

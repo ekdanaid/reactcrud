@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MainContainer from './containers/main';
 import CreateContainer from './containers/create';
-import EditComponent from './components/edit';
+import EditContainer from './containers/edit';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={MainContainer} />
             <Route path="/create" component={CreateContainer} />
-            <Route path="/edit/:id" component={EditComponent} />
+            <Route path="/edit/:id" component={EditContainer} />
           </div>
         </Router>
       </div>

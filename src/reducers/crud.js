@@ -1,7 +1,5 @@
 const initialState = {
-  members: [
-    /*{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }*/
-  ]
+  members: [{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }]
 };
 
 const updateUser = (array, action) => {
@@ -16,11 +14,6 @@ const updateUser = (array, action) => {
   });
 };
 
-const removeUser = (array, id) => {
-  initialState.members = array.filter((data, i) => i !== id);
-  return initialState.members;
-};
-
 const crud = (state = initialState, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
@@ -31,11 +24,14 @@ const crud = (state = initialState, action) => {
       ];
       return nextState;
     case 'REMOVE_USER':
-      return removeUser(state.members, action.payload.id);
+      nextState.members = nextState.members.filter((data, i) => {
+        return i !== action.payload.id;
+      });
+      return nextState;
     case 'UPDATE_USER':
-      return updateUser(state.members, action);
-    // case 'SELECT_USER':
-    //   return selectUser(state.members, action.payload.id);
+      return updateUser(state.members, action.payload);
+    case 'SELECT_USER':
+      return nextState.members[action.payload.id];
     default:
       return state;
   }

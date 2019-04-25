@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../home/App.css';
 import { Link } from 'react-router-dom';
+import UserForm from './UserFormEdit';
 
 class EditComponent extends Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class EditComponent extends Component {
           </Link>
         </div>
         <br />
+        <UserForm {...this.props} />
       </div>
     );
   }

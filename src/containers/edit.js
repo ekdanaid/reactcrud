@@ -3,6 +3,8 @@ import EditComponent from '../components/edit';
 import { connect } from 'react-redux';
 
 import './style.css';
+import { bindActionCreators } from 'redux';
+import { selectUser, updateUser } from '../actions';
 
 // Edit container
 export class EditContainer extends React.Component {
@@ -22,4 +24,17 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(EditContainer);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      selectUser,
+      updateUser
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditContainer);

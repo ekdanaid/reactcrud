@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import UserForm from './UserForm';
+import UserForm from './UserFormCreate';
 class CreateComponent extends Component {
   constructor(props) {
     super(props);
