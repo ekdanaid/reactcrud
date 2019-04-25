@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { enableLoading, disableLoading } from '../actions/loading';
+import { removeUser } from '../actions';
 
 import './style.css';
 
@@ -31,7 +32,9 @@ const mapDispatchToProps = dispatch => {
     {
       // loading action
       enableLoading,
-      disableLoading
+      disableLoading,
+      //remove action
+      removeUser
     },
     dispatch
   );
