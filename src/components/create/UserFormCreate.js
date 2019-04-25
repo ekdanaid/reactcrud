@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 export default class UserFormCreate extends Component {
   constructor(props) {
@@ -21,10 +20,6 @@ export default class UserFormCreate extends Component {
     });
   };
 
-  navigationToHome = () => {
-    return <Link to={'/'} />;
-  };
-
   handleSubmit(e) {
     e.preventDefault();
     let user = {
@@ -36,6 +31,7 @@ export default class UserFormCreate extends Component {
       lname: ''
     });
     this.props.createNewUser(user.name, user.lname);
+    this.props.history.push('/');
   }
 
   handleChange(e) {

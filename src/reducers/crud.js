@@ -2,18 +2,6 @@ const initialState = {
   members: [{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }]
 };
 
-const updateUser = (array, action) => {
-  return array.map((item, index) => {
-    if (index !== action.index) {
-      return item;
-    }
-    return {
-      ...item,
-      ...action.item
-    };
-  });
-};
-
 const crud = (state = initialState, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
@@ -29,9 +17,13 @@ const crud = (state = initialState, action) => {
       });
       return nextState;
     case 'UPDATE_USER':
-      return updateUser(state.members, action.payload);
-    case 'SELECT_USER':
-      return nextState.members[action.payload.id];
+      nextState.members = Object.assign([], nextState.members, {
+        [action.payload.id]: {
+          name: action.payload.name,
+          lname: action.payload.lname
+        }
+      });
+      return nextState;
     default:
       return state;
   }

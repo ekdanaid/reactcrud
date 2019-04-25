@@ -1,8 +1,8 @@
-export const updateUser = (name, lname) => {
+export const updateUser = (name, lname, id) => {
   return function(dispatch) {
     dispatch({
       type: 'UPDATE_USER',
-      payload: { name: name, lname: lname }
+      payload: { name: name, lname: lname, id: id }
     });
   };
 };
@@ -18,14 +18,6 @@ export const removeUser = id => {
   return function(dispatch) {
     dispatch({
       type: 'REMOVE_USER',
-      payload: { id: id }
-    });
-  };
-};
-export const selectUser = id => {
-  return function(dispatch) {
-    dispatch({
-      type: 'SELECT_USER',
       payload: { id: id }
     });
   };

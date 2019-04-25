@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import './style.css';
 import { bindActionCreators } from 'redux';
-import { selectUser, updateUser } from '../actions';
+import { updateUser } from '../actions';
 
 // Edit container
 export class EditContainer extends React.Component {
@@ -27,7 +27,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      selectUser,
       updateUser
     },
     dispatch
