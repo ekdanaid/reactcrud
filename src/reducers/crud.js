@@ -1,8 +1,10 @@
 const initialState = {
-  members: [{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }]
+  members: [
+    /*{ name: 'Steve', lname: 'Jobs' }, { name: 'Elon', lname: 'Musk' }*/
+  ]
 };
 
-function updateUser(array, action) {
+const updateUser = (array, action) => {
   return array.map((item, index) => {
     if (index !== action.index) {
       return item;
@@ -12,25 +14,28 @@ function updateUser(array, action) {
       ...action.item
     };
   });
-}
+};
 
-function removeUser(array, id) {
+const removeUser = (array, id) => {
   initialState.members = array.filter((data, i) => i !== id);
   return initialState.members;
-}
-
-function selectUser(array, id) {}
+};
 
 const crud = (state = initialState, action) => {
+  let nextState = Object.assign({}, state);
   switch (action.type) {
     case 'CREATE_NEW_USER':
-      return [...state, Object.assign({}, action.payload)];
+      nextState.members = [
+        ...nextState.members,
+        Object.assign({}, action.payload)
+      ];
+      return nextState;
     case 'REMOVE_USER':
       return removeUser(state.members, action.payload.id);
     case 'UPDATE_USER':
       return updateUser(state.members, action);
-    case 'SELECT_USER':
-      return selectUser(state.members, action.payload.id);
+    // case 'SELECT_USER':
+    //   return selectUser(state.members, action.payload.id);
     default:
       return state;
   }

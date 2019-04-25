@@ -22,7 +22,7 @@ class CreateComponent extends Component {
           </Link>
         </div>
         <br />
-        <UserForm />
+        <UserForm {...this.props} />
       </div>
     );
   }

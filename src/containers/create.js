@@ -25,11 +25,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    //Create new User
-    createNewUser,
+  return bindActionCreators(
+    {
+      //Create new User
+      createNewUser
+    },
     dispatch
-  });
+  );
 };
 
 export default connect(
