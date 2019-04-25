@@ -3,6 +3,8 @@ import CreateComponent from '../components/create';
 import { connect } from 'react-redux';
 
 import './style.css';
+import { bindActionCreators } from 'redux';
+import { createNewUser } from '../actions';
 
 // Create container
 export class CreateContainer extends React.Component {
@@ -22,4 +24,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CreateContainer);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    //Create new User
+    createNewUser,
+    dispatch
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateContainer);
