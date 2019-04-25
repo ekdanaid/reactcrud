@@ -1,6 +1,7 @@
-# React-template
+# React-CRUD
 
-I created this for saving time to create components, containers, routes, reducer and install several necessary packages.
+I used this template for saving time to create components, containers, routes, reducer and install several necessary packages.
+and this is my CRUD with react project
 
 -------
 
